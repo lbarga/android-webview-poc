@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         webView.settings.domStorageEnabled = true
 
         webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
 
                 // NOT TESTED
                 // webView.evaluateJavascript("window.localStorage.setItem('appToken','dc7EqC8h8fla5RiSDhTaPwKpkaNNZvu4');", null);
@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         webView.loadUrl("http://10.0.2.2:3000")
-
     }
 
 }
